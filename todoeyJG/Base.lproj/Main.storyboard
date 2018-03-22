@@ -36,7 +36,14 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" title="Todoey" id="exY-5z-zo4"/>
+                    <navigationItem key="navigationItem" title="Todoey" id="exY-5z-zo4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KtT-XM-ZFY">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="pjF-rT-dhH" id="gzx-Gb-8D2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epK-qd-gCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
