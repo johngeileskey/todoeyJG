@@ -10,11 +10,16 @@ import UIKit
 
 class TodoListViewController: UITableViewController {
     
-    var itemArray = ["John", "Cheryl", "Meigan", "Kylie", "Nathan", "Travis"]
-
+    var itemArray = [String]() // ["John", "Cheryl", "Meigan", "Kylie", "Nathan", "Travis"]
+    let defaults = UserDefaults.standard  // use user defaults to store small bits of user data
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if let items = defaults.array(forKey: "TodoListArray") as? [String]{
+            itemArray = items
+        }
+        
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
@@ -46,6 +51,9 @@ class TodoListViewController: UITableViewController {
             print ("Success")
             print (alert.textFields![0].text!)
             self.itemArray.append(alert.textFields![0].text!)
+            
+            self.defaults.set(self.itemArray, forKey: "TodoListArray")
+            
             self.tableView.reloadData()
         }
         
